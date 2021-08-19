@@ -35,19 +35,18 @@ app.get('/', (req,res) => {
 })
 
 app.post("/signup", (req , res)=> {
-    res.send("signup API")
+    
    
-let userCreate = new authModel({email:req.body.email, password: req.body.password})
+let userCreate = new authModel({email :req.body.email, password: req.body.password})
 userCreate.save()
 .then((response)=>{
     
-    // console.log(response,"response success")
+    console.log(response,"response success")
      res.status(200).send({result:response, message: "Data Stored Successfully"})
 })
 
 .catch((err)=> {
-   
-    // console.log("error", err)
+    console.log(error, "err")
     return res.status(400).send({result: err.message, message: "Data Not Stored Successfully"})
 })
 
